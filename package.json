@@ -1,0 +1,29 @@
+{
+  "name": "carpool",
+  "version": "1.0.0",
+  "description": "CarPool Project with MEAN Stack Technologies",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },"dependencies": {
+    "express":"*",
+    "mongoose":"*",
+    "bcryptjs":"*",
+    "cors":"*",
+    "jsonwebtoken":"*",
+    "body-parser":"*",
+    "passport":"*",
+    "passport-jwt":"*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/safouane1493/CarPool.git"
+  },
+  "author": "saf_one",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/safouane1493/CarPool/issues"
+  },
+  "homepage": "https://github.com/safouane1493/CarPool#readme"
+}
