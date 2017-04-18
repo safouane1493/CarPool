@@ -15,7 +15,7 @@ app.listen(port,()=>{
 
 const users = require('./routes/users');
 
-app.user('/users',users);
+app.use('/users',users);
 
 app.get('/',(req,res)=>{
     res.send('Invalid EndPoint');
