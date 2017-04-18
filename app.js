@@ -22,4 +22,10 @@ app.listen(port,()=>{
     console.log('Server started on port '+port);
 });
 
+app.user('/users',users);
+
+app.get('/',(req,res)=>{
+    res.send('Invalid EndPoint');
+});
+
 var cc ="hello i am a root";
