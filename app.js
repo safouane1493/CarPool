@@ -14,11 +14,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-app.user('/users',users);
 
-app.get('/',(req,res)=>{
-    res.send('Invalid EndPoint');
-});
 
 
 
