@@ -14,13 +14,21 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+const users = require('./routes/users');
 
+app.user('/users',users);
+
+app.get('/',(req,res)=>{
+    res.send('Invalid EndPoint');
+});
 
 
 
 app.listen(port,()=>{
     console.log('Server started on port '+port);
 });
+
+
 
 
 var cc ="hello i am a root";
