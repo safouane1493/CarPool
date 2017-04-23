@@ -8,6 +8,10 @@ const config = require('./config/database');
 
 mongoose.connect(config.database);
 
+mongoose.connection.on('connected', () =>{
+    console.log('connected to database '+config.database);
+});
+
 const app = express();
 const port = 3000;
 
