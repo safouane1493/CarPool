@@ -22,16 +22,13 @@ const UserSchema = mongoose.Schema({
         required: true
     },
     idcard : {
-        type: Number,
-        required: true
+        type: Number
     },
     birthday : {
-        type: Date,
-        required: true
+        type: Date
     },
     phone : {
-        type: Number,
-        required: true
+        type: Number
     }
 });
 
@@ -44,4 +41,8 @@ module.exports.getUserById = function(id, callback){
 module.exports.getUserByEmail = function(email, callback){
     const query = {email : email}
     User.findOne(query,callback);
+}
+module.exports.addUser = function(newUser, callback){
+    newUser.save(callback);
+    
 }
