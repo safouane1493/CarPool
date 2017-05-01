@@ -27,6 +27,8 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./config/passport')(passport);
+
 const users = require('./routes/users');
 
 app.use('/users',users);
