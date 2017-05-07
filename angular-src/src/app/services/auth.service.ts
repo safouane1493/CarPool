@@ -15,6 +15,14 @@ export class AuthService {
     return this.http.post('http://127.0.0.1:3000/users/register',user,{headers : headers}).map(res => res.json());
   }
 
+  editUser(user){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization',this.authToken);
+    headers.append('Content-Type','application/json');
+    return this.http.post('http://127.0.0.1:3000/users/editprofile',user,{headers : headers}).map(res => res.json());
+  }
+
    authenticateUser(user){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
@@ -26,6 +34,19 @@ export class AuthService {
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken =token;
     this.user = user;
+}
+
+getProfile(){
+  let headers = new Headers();
+  this.loadToken();
+    headers.append('Authorization',this.authToken);
+    headers.append('Content-Type','application/json');
+    return this.http.get('http://127.0.0.1:3000/users/profile',{headers : headers}).map(res => res.json());
+  
+}
+loadToken(){
+  const token = localStorage.getItem('id_token');
+  this.authToken = token;
 }
 
 logout(){

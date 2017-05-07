@@ -62,8 +62,30 @@ router.post('/authentification', (req, res, next) =>{
 
 //Profile
 router.get('/profile', passport.authenticate('jwt',{session:false}) ,(req, res, next) =>{
-
+    
     return res.json({user: req.user});
+});
+
+
+//Edit Profile
+router.post('/editprofile', passport.authenticate('jwt',{session:false}) ,(req, res, next) =>{
+    let monUser = new User({
+    _id:req.body._id,
+    name : req.body.name,
+    lastname :req.body.lastname,
+    email :req.body.email,
+    password :req.body.password,
+    idcard :req.body.idcard,
+    birthday :req.body.birthday,
+    phone :req.body.phone
+});
+    User.editUser(monUser, (err,user) =>{
+    if(err)
+        res.json({success: false, msg: 'Failed'});
+    else
+        res.json({success: true, msg: req.user});
+        
+});
 });
 
 //Validate
